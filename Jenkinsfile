@@ -3,7 +3,6 @@ pipeline {
 	tools {
 		maven 'maven-3.9.2'
 	}
-
 	stages {
 		parallel {
 			stage('Echo test'){
