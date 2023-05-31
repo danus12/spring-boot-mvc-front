@@ -5,20 +5,22 @@ pipeline {
 	}
 
 	stages {
-		stage('Echo test'){
-			steps {
-				echo 'Le step de test'
-				sh 'mvn --version'
+		parallel {
+			stage('Echo test'){
+				steps {
+					echo 'Le step de test'
+					sh 'mvn --version'
+				}
 			}
-		}
-		stage('Unit tests'){
-			steps {
-				sh 'mvn test'
+			stage('Unit tests'){
+				steps {
+					sh 'mvn test'
+				}
 			}
-		}
-		stage('Packaging'){
-			steps {
-				sh 'mvn package -DskipTest'
+			stage('Packaging'){
+				steps {
+					sh 'mvn package -DskipTest'
+				}
 			}
 		}
 	}
