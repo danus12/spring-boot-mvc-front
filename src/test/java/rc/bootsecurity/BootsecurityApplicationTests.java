@@ -18,6 +18,6 @@ public class BootsecurityApplicationTests {
     public void checkOnePlusOneEqualsOne() {
         int somme = 2+1;
         Assertions.assertThat(somme).isNotNull();
-        Assertions.assertThat(somme).isEqualTo(3);
+        Assertions.assertThat(somme).isEqualTo(2);
     }
 }
