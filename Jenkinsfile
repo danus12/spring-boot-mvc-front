@@ -4,16 +4,18 @@ pipeline {
 		maven 'maven-3.9.2'
 	}
 	stages {
-		parallel {
-			stage('Echo test'){
-				steps {
-					echo 'Le step de test'
-					sh 'mvn --version'
+		stage {
+			parallel {
+				stage('Echo test'){
+					steps {
+						echo 'Le step de test'
+						sh 'mvn --version'
+					}
 				}
-			}
-			stage('Unit tests'){
-				steps {
-					sh 'mvn test'
+				stage('Unit tests'){
+					steps {
+						sh 'mvn test'
+					}
 				}
 			}
 		}
