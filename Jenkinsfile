@@ -5,11 +5,20 @@ pipeline {
 	}
 
 	stages {
-		stage('Unit tests'){
+		stage('Echo test'){
 			steps {
 				echo 'Le step de test'
 				sh 'mvn --version'
+			}
+		}
+		stage('Unit tests'){
+			steps {
 				sh 'mvn test'
+			}
+		}
+		stage('Packaging'){
+			steps {
+				sh 'mvn package -DskipTest'
 			}
 		}
 	}
