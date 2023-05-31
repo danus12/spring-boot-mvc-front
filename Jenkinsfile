@@ -4,7 +4,7 @@ pipeline {
 		maven 'maven-3.9.2'
 	}
 	stages {
-		stage {
+		stage('Echo test & unit tests'){
 			parallel {
 				stage('Echo test'){
 					steps {
