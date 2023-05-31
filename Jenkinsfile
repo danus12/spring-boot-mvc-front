@@ -1,10 +1,16 @@
-def mvn
-node {
-	stage('Get tools') {
-		def maven_home = tool 'maven-3.9.2'
-		mvn = "${maven_home}/bin/mvn"
+pipeline {
+	agent any
+	tools {
+		maven 'maven-3.9.2'
 	}
-	stage('Get maven version') {
-		sh "${mvn} --version"
+
+	stages {
+		stage('Unit tests'){
+			steps {
+				echo 'Le step de test'
+				sh 'mvn --version'
+				sh 'mvn test'
+			}
+		}
 	}
 }
