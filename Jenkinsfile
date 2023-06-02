@@ -9,7 +9,9 @@ pipeline {
 				sh 'mvn test'
 			}
 			post {
-				junit 'target/surefire-reports/*.xml'
+				always {
+					junit 'target/surefire-reports/*.xml'
+				}
 			}
 		}
 		stage('Packaging'){
@@ -17,7 +19,9 @@ pipeline {
 				sh 'mvn package -DskipTests'
 			}
 			post {
-				archiveArtifacts artifacts: 'target/*.jar'
+				always {
+					archiveArtifacts artifacts: 'target/*.jar'
+				}
 			}
 		}
 	}
